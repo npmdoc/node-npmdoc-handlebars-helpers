@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.handlebars-helpers.handlebars-helpers">
+            function <span class="apidocSignatureSpan"></span>handlebars-helpers
+            <span class="apidocSignatureSpan">(groups, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.handlebars-helpers.utils">
             function <span class="apidocSignatureSpan">handlebars-helpers.</span>utils
             <span class="apidocSignatureSpan">(name, alias)</span>
@@ -2078,6 +2087,42 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.handlebars-helpers" id="apidoc.module.handlebars-helpers">module handlebars-helpers</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.handlebars-helpers.handlebars-helpers" id="apidoc.element.handlebars-helpers.handlebars-helpers">
+        function <span class="apidocSignatureSpan"></span>handlebars-helpers
+        <span class="apidocSignatureSpan">(groups, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function helpers(groups, options) {
+  if (typeof groups === &#x27;string&#x27;) {
+    groups = [groups];
+  } else if (!Array.isArray(groups)) {
+    options = groups;
+    groups = null;
+  }
+
+  options = options || {};
+  var hbs = options.handlebars || options.hbs || require(&#x27;handlebars&#x27;);
+
+  define(module.exports, &#x27;handlebars&#x27;, hbs);
+
+  if (groups) {
+    groups.forEach(function(key) {
+      hbs.registerHelper(lib[key]);
+    });
+  } else {
+    forIn(lib, function(group, key) {
+      hbs.registerHelper(group);
+    });
+  }
+  return hbs.helpers;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
